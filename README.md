@@ -28,13 +28,13 @@ Comments
 
 Features:
 
--Users can log in, create events, and join events
+- Users can log in, create events, and join events
 
--Users can meet up with people with similar interest. For example, a user wants to watch Big Hero 6 but has no one to go with, others in a similar situation can join.
+- Users can meet up with people with similar interest. For example, a user wants to watch Big Hero 6 but has no one to go with, others in a similar situation can join.
 
--Discover all the events that are happening to see if there’s any interesting events.
+- Discover all the events that are happening to see if there’s any interesting events.
 
--emailing when events get updated *
+- emailing when events get updated *
 
 
 Division of Labor:
