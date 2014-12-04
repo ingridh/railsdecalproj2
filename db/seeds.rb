@@ -7,3 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
+
+# @u = User.new
+# @u.email = name+"@example.com"
+# @u.name = name
+# puts @u.save(:validate => false)
+
+# @e = Event.new
+# @e.user = @u
+# @e.title =  "Rails Decal"
+# @e.description = "The Rails DeCal will teach you the skills to create dynamic web applications for any purpose."
+# @e.location = "Wurster Hall"
+# @e.time = 
