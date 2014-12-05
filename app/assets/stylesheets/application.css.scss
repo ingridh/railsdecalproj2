@@ -13,3 +13,60 @@
  *= require_tree .
  *= require_self
  */
+
+/*!
+ * Start Bootstrap - Agency Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    overflow-x: hidden;
+    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+main {
+    margin-top: 0;
+}
+
+#maintitle {
+    text-align: center;
+    font-family: "Montserrat", "sans-serf";
+    position: relative;
+    color: white;
+    margin-top: 15%;
+}
+
+.landingcontainer {
+    width: auto;
+    height: 650px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+}
+
+.aboutcontainer {
+    position: static;
+    // padding-top: 40%;
+}
+
+
+footer ul {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 15px;
+    list-style: none;
+}
+
+li {
+    display: inline;
+    float: left;
+    text-align: right;
+    margin-right: 10px;
+}
+
+
+
+
+

@@ -1,17 +1,35 @@
+<head>
+</head>
+<body>
+	<div id = "infocontain">
+	<h3>Hi there <b><%= @user.name if @user.name %></h3></b>
+
+	<ul><p><b>YOUR EMAIL:</b> <%= @user.email if @user.email %></p></ul>
+  	<br><br>
 
 
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
-
-create a new event:
-
-Your Events:
+	<h4>Your Events:<h4>
 
 
-Events You're Going To:
+	<h5>Events You're Going To:</h5>
 
 
-Events You Said No To:
+	<h5>Create your own event</h5>
+
+	</div>
+</body>
 
 
+  <style type="text/css">
+      body {
+      	left: 0;
+      	font-family: "Roboto Slab","Helvetica Neue",,Helvetica,Arial,sans-serif;"
+
+      }
+
+      #infocontain{
+      	margin-left: 60px;
+      	padding-top: 20px;
+      }
+
+  </style>

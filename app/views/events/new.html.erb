@@ -1,4 +1,14 @@
-some form to create a new event using the 'create' function
+<!-- some form to create a new event using the 'create' function
 required: event name, description, location, time
 optional notes
-include validations
+include validations -->
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :event, label: required: true 'Event Name' %>
+  <%= f.input :description, as: :text: 'Description' %>
+  <%= f.input :location, label: 'Location' %>
+  <%= f.input :time, label: 'Time' %>
+  <%= f.input :date, as: :date, year: Date.today.year - 90, end_year: Date.today.year - 12, discard_day: true, order: [:month, :year] %>
+
+  <%= f.button :submit %>
+<% end %>
