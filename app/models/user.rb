@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :events
   has_many :comments
-  validates :name, :presence => true
+  # validates :name, :presence => true
+  # errors when raking db seed if this line is not commented out
 end

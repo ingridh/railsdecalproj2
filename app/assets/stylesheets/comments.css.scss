@@ -1,7 +1,13 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 * {
-	 font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+button a {
+	text-decoration: none !important; //this is the styling for landing page buttons
+	font-family: "Montserrat", "sans-serf";
 
 }
+

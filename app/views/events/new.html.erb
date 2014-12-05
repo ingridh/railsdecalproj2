@@ -2,7 +2,7 @@
 required: event name, description, location, time
 optional notes
 include validations -->
-<!-- 
+
 <%= simple_form_for @user do |f| %>
   <%= f.input :event, label: required: true 'Event Name' %>
   <%= f.input :description, as: :text: 'Description' %>
@@ -11,4 +11,4 @@ include validations -->
   <%= f.input :date, as: :date, year: Date.today.year - 90, end_year: Date.today.year - 12, discard_day: true, order: [:month, :year] %>
 
   <%= f.button :submit %>
-<% end %> -->
+<% end %>
