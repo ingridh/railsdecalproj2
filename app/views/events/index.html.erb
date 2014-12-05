@@ -1,6 +1,46 @@
-<h1>Events#index</h1>
-list all the events created by all users and clickable links, short description etc, for users to discover
 
-instructors want us to make this pretty, like a good looking calendar
+	<body>
+	<!-- list all the events created by all users and clickable links, short description etc, for users to discover
 
-can also do a search option to look over all events titles/descriptions to find keywords and display those events
+	instructors want us to make this pretty, like a good looking calendar
+
+	can also do a search option to look over all events titles/descriptions to find keywords and display those events -->
+
+		<div id = "eventcontainer">
+		<h3>All the Events</h3>
+			<table class="table">
+			 <thead>
+		        <tr>
+		            <th>Event Name</th>
+		            <th>Time &amp; Location</th>
+		            <th>Description</th>
+		        </tr>
+		    </thead>
+	        <tbody>
+	          <% @events.each do |event| %>
+	            <tr>
+	              <td><li><%= event.title %></li></td>
+				  <td><li><%= event.time %> at <%= event.location %></li></td>
+				  <td><li> <%= event.description %></li></td>
+	            </tr>
+	          <% end %>
+	        </tbody>
+	      </table>
+	</body>
+
+	
+
+
+
+	<style>
+	 	body {
+	 		left: 0;
+	 	}
+
+		#eventcontainer {
+			margin-left: 50px;
+			width: 1000px;
+			
+		}
+	</style>
+
