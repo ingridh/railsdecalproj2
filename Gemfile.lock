@@ -55,6 +55,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    emailing (1.1.1.6)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
@@ -151,6 +152,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
+  emailing (~> 1.1.1.6)
   jbuilder (~> 2.0)
   jquery-rails
   pg
