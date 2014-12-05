@@ -9,8 +9,8 @@ user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
 @u = User.new
-@u.email = "howard@example.com"
-@u.name = "howard"
+@u.email = "newuser@email.com"
+@u.name = "Ingrid"
 @u.save
 puts @u.email
 
@@ -21,5 +21,16 @@ puts @u.email
 @e.location = "Wurster Hall"
 @e.time = "7:00pm-9:00pm"
 @e.date = "12/04/14"
+@e.save
+puts @e.title
+
+
+@e = Event.new
+@e.user_id = @u.id
+@e.title =  "Ice Skating"
+@e.description = "Ice skate in SF and enjoy the holiday decorations in the city."
+@e.location = "Union Square"
+@e.time = "7:00pm-10:00pm"
+@e.date = "12/20/14"
 @e.save
 puts @e.title

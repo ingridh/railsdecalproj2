@@ -1,5 +1,14 @@
-some form to create a new comment using the create function
+<!-- some form to create a new comment using the create function
 required: attending (yes/no)
 optional comment
 include validations
-set this comment's event_id to be the current event(possibly include it in the form)
+set this comment's event_id to be the current event(possibly include it in the form) 
+-->
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :attending, label: required: true 'y/n' %>
+  <%= f.input :comment, as: :text: 'Description' %>
+  <%= f.input :date, as: :date, year: Date.today.year - 90, end_year: Date.today.year - 12, discard_day: true, order: [:month, :year] %>
+
+  <%= f.button :submit %>
+<% end %>
