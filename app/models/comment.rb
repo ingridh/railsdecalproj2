@@ -4,4 +4,5 @@ class Comment < ActiveRecord::Base
 	validates :attending, presence: true
 	validates :user_id, presence: true
 	validates :event_id, presence: true
+
 end

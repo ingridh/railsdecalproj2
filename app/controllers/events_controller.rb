@@ -25,7 +25,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.update_attributes(:user_id => current_user.id)
+      if current_user
+        @event.update_attributes(:user_id => current_user.id)
+      else
+        @event.update_attributes(:user_id => nil)
+      end
     saved = @event.save
     if saved
       redirect_to event_path(@event.id)

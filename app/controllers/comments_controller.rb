@@ -18,12 +18,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-  def create(id)
+  def create
     @comment = Comment.new(comment_params)
     @comment.update_attributes(:event_id => id)
     @comment.update_attributes(:user_id => current_user.id)
     saved = @comment.save
-    1/0
+    #1/0
     if saved
       redirect_to events_show_path(@comment.event_id)
     else
