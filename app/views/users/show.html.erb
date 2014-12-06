@@ -22,10 +22,10 @@
   Create Your Own Event!
 </button>
 
-  <button type="button" class="btn btn-default btn-lg"><%= link_to 'Create Your Own Event!', new_event_path %></button>
+<!--   <button type="button" class="btn btn-default btn-lg"><%= link_to 'Create Your Own Event!', new_event_path %></button> -->
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -33,25 +33,27 @@
         <h4 class="modal-title" id="myModalLabel">Create Event</h4>
       </div>
       <div class="modal-body">
-          
-  <%= simple_form_for @event do |f| %>
-  <%= f.input :title, label: 'Event Name', required: true, input_html: {maxlength: 30}  %>
-  <%= f.input :time, as: :time, required: true %><br>
-  <%= f.input :date, as: :date, required: true %><br><br>
-  <%= f.input :location, label: 'Location', required: true %>
-  <%= f.input :description, as: :text, label: 'Description', required: true %>
-
-  
-
-  
+        
+    <%=render :template => "/events/new"%>
+<!-- 
+    <%= simple_form_for Event.new, url: { action: 'create' } do |f| %>
+    <%= f.input :title, label: 'Event Name', required: true, input_html: {maxlength: 30}  %>
+    <%= f.input :datetime, as: :datetime, required: true %><br><br>
+    <%= f.input :location, label: 'Location', required: true, input_html: {maxlength: 30} %>
+    <%= f.input :description, as: :text, label: 'Description', required: true %>
+    <%= f.button :submit%>
+ -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <%= f.button :submit %>
+
+        <%= f.button :submit%>
+
+
       </div>
     </div>
   </div>
-</div>
+</div> 
 
 
 
@@ -75,3 +77,5 @@
       }
 
   </style>
+
+

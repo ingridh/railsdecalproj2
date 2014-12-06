@@ -19,16 +19,19 @@
 			 <thead>
 		        <tr>
 		            <th>Event</th>
-		            <th>Time &amp; Location</th>
+		            <th>Date &amp; Time</th>
+		             <th>Location</th>
 		            <th>Description</th>
+		            <th>
 		        </tr>
 		    </thead>
 	        <tbody>
   	          <% @events.each do |event| %>
 	            <tr>
 	              <td><li><%= event.title %></li></td>
-				  <td><li><%= event.time %> at <%= event.location %></li></td>
-				  <td><li> <%= event.description %></li></td>
+				  <td><li><%= event.datetime %></li></td>
+				  <td><li><%= event.location %></li><td>
+				  <td><li><%= event.description %></li></td>
 	            </tr>
 	          <% end %>
 	        </tbody>
@@ -56,12 +59,15 @@
 
 		#eventcontainer {
 			margin-left: 50px;
-			width: 1000px;
+			width: 90%;
+			height: auto;
 			font-family: "Montserrat", "sans-serf";
 		}
 
 		h3 {
 			padding: 7px;
 		}
+
+	
 	</style>
 

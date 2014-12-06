@@ -57,18 +57,10 @@ main {
 
 }
 
-.time { //form//
-    width: 50px;
-    display: inline;
-    margin-bottom: 10px;
-    margin-left: 7px;
 
-}
-
-.date {
-    width: 150px;
+.datetime {
+    width: auto;
     display: inline;
-    margin-left: 7px;
 }
 
 footer ul {
@@ -83,6 +75,8 @@ footer ul {
 
 a {
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-decoration:none;
+    color: black;
 }
 
 li {
