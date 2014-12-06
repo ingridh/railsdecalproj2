@@ -5,10 +5,9 @@ include validations
 set this comment's event_id to be the current event(possibly include it in the form) 
 -->
 
-<%= simple_form_for @user do |f| %>
-  <%= f.input :attending, label: required: true 'y/n' %>
-  <%= f.input :comment, as: :text: 'Description' %>
-  <%= f.input :date, as: :date, year: Date.today.year - 90, end_year: Date.today.year - 12, discard_day: true, order: [:month, :year] %>
-
+<h5> comment by letting people know if you'll be attending!</h5>
+  <%= simple_form_for Comment.new, url: { action: 'create' } do |f| %>
+  <%= f.input :attending, required: true, as: :radio_buttons %>
+  <%= f.input :comment, as: :text, label: 'optional comment' %>
   <%= f.button :submit %>
 <% end %>

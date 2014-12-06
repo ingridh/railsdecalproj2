@@ -5,19 +5,18 @@ class EventsController < ApplicationController
   end
 
   def new
-    #@event = Event.new
-    #@user = current_user
   end
   
   def show
     #displays the event page
     @event = Event.find(params[:id])
+    @comment = Comment.new
   end
 
   def update
     @event = Event.find(params[:id])
     @event.update_attributes(event_params)
-    render events_show_path(@event)
+    render event_path
   end
 
   def edit
@@ -32,8 +31,20 @@ class EventsController < ApplicationController
       redirect_to event_path(@event.id)
     else
       flash[:error] = @event.errors.full_messages.to_sentence
-      render user_path(current_user)
+      render new_event_path
     end
+  end
+
+  def new_com(id)
+    #@comment.update_attributes(comment_params)
+    #@event = Event.find(params[:id])
+    redirect_to create_comment_path(id)
+  end
+
+  def delete
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path
   end
 
   def event_params

@@ -1,5 +1,9 @@
-<h1>Events#edit</h1>
-some form to edit a event using the 'update' function
-required: event name, description, location, time
-optional notes
-include validations
+
+<h5>Edit your event</h5>
+<%= simple_form_for @event, url: {action: "update"} do |f| %>
+<%= f.input :title, label: 'Event Name', required: true, input_html: {maxlength: 30}  %>
+<%= f.input :description, as: :text, label: 'Description', required: true %>
+<%= f.input :location, label: 'Location', required: true %>
+<%= f.input :datetime, as: :datetime, required: true %>
+<%= f.button :submit %>
+<% end %>

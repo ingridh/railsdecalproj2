@@ -11,8 +11,18 @@
 
 
 	<h4>Your Events:<h4>
-
-
+  <% if current_user.events.empty? %>
+    You have no events! Hurry go make some :D
+    <% else %>
+        <ul>
+            <% @user.events.each do |event| %>
+                <li><%= link_to event.title, event_path(event) %>: <br> <%= event.description %> <br>
+                <%= link_to 'Edit your event', edit_event_path(event) %>
+                </li>
+    <% end %>
+        </ul>
+  <% end %>
+<br><br><br>
 	<h5>Events You're Going To:</h5>
 
   <br>
@@ -34,29 +44,21 @@
       </div>
       <div class="modal-body">
           
-  <%= simple_form_for @event do |f| %>
+  <%= simple_form_for Event.new, url: { action: 'create' } do |f| %>
   <%= f.input :title, label: 'Event Name', required: true, input_html: {maxlength: 30}  %>
-  <%= f.input :time, as: :time, required: true %><br>
-  <%= f.input :date, as: :date, required: true %><br><br>
-  <%= f.input :location, label: 'Location', required: true %>
   <%= f.input :description, as: :text, label: 'Description', required: true %>
-
-  
-
-  
+  <%= f.input :location, label: 'Location', required: true %>
+  <%= f.input :datetime, as: :datetime, required: true %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <%= f.button :submit %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-  <% end %>
 
 
 	</div>

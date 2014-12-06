@@ -11,17 +11,19 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     @comment.update_attributes(comment_params)
-    render events_show_path(@comment.event_id)
+    render event_path(@comment.event_id)
   end
 
   def edit
     @comment = Comment.find(params[:id])
   end
 
-  def create
+  def create(id)
     @comment = Comment.new(comment_params)
+    @comment.update_attributes(:event_id => id)
     @comment.update_attributes(:user_id => current_user.id)
     saved = @comment.save
+    1/0
     if saved
       redirect_to events_show_path(@comment.event_id)
     else
@@ -33,11 +35,11 @@ class CommentsController < ApplicationController
   def delete
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to events_show_path(@comment.event_id)
+    redirect_to event_path(@comment.event_id)
   end
 
   def comment_params
-    params.require(:event).permit(:attending)
+    params.require(:comment).permit(:attending)
   end
 
 end

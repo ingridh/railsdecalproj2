@@ -4,6 +4,34 @@ list the details of this event
 if logged-in user is the creator: have options to change the event details/delete event
 (if you want, give it the ability to delete attendees as well, but it might complicate users view-need to remove the event from deleted user's feed, as well as the list of discoverable events, will need to update database column)
 
-if logged-in user is not the creator: let them leave a comment (comments_new_path)
 
-display all the comments this event already has; have an edit/delete button depending on the ownership of this comment == logged-in user
+<br>
+Title: <%= @event.title %> <br>
+Description: <%= @event.description %> <br>
+Location: <%= @event.location %> <br>
+Date and Time: <%= @event.datetime %> <br><br>
+
+<% if @event.user_id == current_user.id %>
+	<%= link_to 'Edit your event', edit_event_path(@event) %>
+<% end %>
+
+<br>
+<br>
+<h4>Comments<h4>
+<% if @event.comments.empty? %>
+	no comments. <br>
+	<button type="button" class="btn btn-default btn-lg"><%= link_to 'Add a comment', new_comment_path %></button>
+	<% else %>
+        <ul>
+        <button type="button" class="btn btn-default btn-lg"><%= link_to 'Add a comment', new_comment_path %></button>
+        <% @event.comments.each do |comment| %>
+            <li><%= comment.attending %> <br> <%= comment.comment %> <br>
+            <% if @event.user_id == current_user.id %>
+            	<%= link_to 'Edit this comment', edit_comment_path(comment.id) %>
+            	<%= link_to 'Delete this comment', delete_comment_path(comment.id) %>
+            <% end %>
+            </li>
+    <% end %>
+        </ul>
+  <% end %>
+
