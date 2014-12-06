@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @event = Event.new
     @user = User.find(params[:id])
     unless @user == current_user
       redirect_to :back, :alert => "Access denied."

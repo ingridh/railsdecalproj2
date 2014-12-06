@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @event = Event.new
     @user = current_user
   end
   
@@ -28,15 +29,15 @@ class EventsController < ApplicationController
     @event.update_attributes(:user_id => current_user.id)
     saved = @event.save
     if saved
-      redirect_to events_show_path(@event)
+      redirect_to event_path(@event)
     else
       flash[:error] = @event.errors.full_messages.to_sentence
-      render events_new_path
+      render new_event_path
     end
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :time)
+    params.require(:event).permit(:title, :description, :location, :time, :date)
   end
 
 end

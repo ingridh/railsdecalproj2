@@ -8,11 +8,11 @@
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
-@u = User.new
-@u.email = "newuser@email.com"
-@u.name = "Ingrid"
-@u.save
-puts @u.email
+# @u = User.new
+# @u.email = "newuser@email.com"
+# @u.name = "Ingrid"
+# @u.save
+# puts @u.email
 
 @e = Event.new
 @e.user_id = @u.id

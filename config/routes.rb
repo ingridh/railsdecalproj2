@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   # get 'events/edit'
 
   # get 'events/create'
-  resources :users
   resources :events
   resources :comments
   root to: 'visitors#index'
