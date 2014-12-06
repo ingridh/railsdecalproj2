@@ -11,30 +11,49 @@
 
 
 	<h4>Your Events:<h4>
-  <% if current_user.events.empty? %>
+  <% if @user.events.empty? %>
     You have no events! Hurry go make some :D
     <% else %>
         <ul>
             <% @user.events.each do |event| %>
-                <li><%= link_to event.title, event_path(event) %>: <br> <%= event.description %> <br>
-                <%= link_to 'Edit your event', edit_event_path(event) %>
+                <li><%= link_to event.title, event_path(event) %>:<h5> <%= event.description %> </h5>
+                <h6><%= link_to 'Edit your event', edit_event_path(event) %></h6>
                 </li>
-    <% end %>
+                <br><br>
+            <% end %>
         </ul>
   <% end %>
 <br><br><br>
 	<h5>Events You're Going To:</h5>
+  <% if @user.comments.empty? %>
+    You're not going to any events! Explore or create your own below!'<br>
+  <% else %>
+        <ul><li>
+            <% Event.all.each do |event| %>
+              <% event.comments.each do |comment| %>
+                <% if comment.attending %>
+                    <h4> <%= event.title %> <br> </h4>
+                <% end %>
+                <h6><%= link_to 'Edit your decision', event_path(event.id) %></h6>
+                </li>
+                <br><br>
+              <% end %>
+            <% end %>
+        </ul>
+  <% end %>
+
 
   <br>
   <button type="button" class="btn btn-default btn-lg"><%= link_to 'Explore More Events!', events_path %></button>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Create Your Own Event!
-</button>
+</button> -->
 
-<!--   <button type="button" class="btn btn-default btn-lg"><%= link_to 'Create Your Own Event!', new_event_path %></button> -->
+   <button type="button" class="btn btn-primary btn-lg"><%= link_to 'Create Your Own Event!', new_event_path %></button>
 
-<!-- Modal -->
+
+<!-- Modal --><!--
  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -55,6 +74,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         
         <% end %>
+-->
       </div>
     </div>
   </div>

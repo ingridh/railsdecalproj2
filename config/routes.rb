@@ -18,10 +18,6 @@ Rails.application.routes.draw do
   # get 'events/edit'
 
   # get 'events/create'
-  patch '/events', to:'events#delete', as:'delete_event'
-  patch '/event/:id', to:'comments#delete', as:'delete_comment'
-  post '/event/:id', to:'comments#create', as:'create_comment'
-  get '/event/:id', to:'events#new_com', as:'new_com'
 
   resources :events
   resources :comments

@@ -1,18 +1,13 @@
-<h1>Events#show</h1>
-list the details of this event
-
-if logged-in user is the creator: have options to change the event details/delete event
-(if you want, give it the ability to delete attendees as well, but it might complicate users view-need to remove the event from deleted user's feed, as well as the list of discoverable events, will need to update database column)
-
 
 <br>
-Title: <%= @event.title %> <br>
-Description: <%= @event.description %> <br>
+<h2>Title: <%= @event.title %> </h2><br>
+<h4>Description: <%= @event.description %> <br>
 Location: <%= @event.location %> <br>
-Date and Time: <%= @event.datetime %> <br><br>
+Date and Time: <%= @event.datetime %> </h4><br><br>
 
 <% if @event.user_id == current_user.id %>
 	<%= link_to 'Edit your event', edit_event_path(@event) %>
+    <%= link_to 'Delete your event', @event, method: :delete %></h8>
 <% end %>
 
 <br>
@@ -20,18 +15,50 @@ Date and Time: <%= @event.datetime %> <br><br>
 <h4>Comments<h4>
 <% if @event.comments.empty? %>
 	no comments. <br>
-	<button type="button" class="btn btn-default btn-lg"><%= link_to 'Add a comment', new_comment_path %></button>
 	<% else %>
         <ul>
-        <button type="button" class="btn btn-default btn-lg"><%= link_to 'Add a comment', new_comment_path %></button>
         <% @event.comments.each do |comment| %>
-            <li><%= comment.attending %> <br> <%= comment.comment %> <br>
-            <% if @event.user_id == current_user.id %>
-            	<%= link_to 'Edit this comment', edit_comment_path(comment.id) %>
-            	<%= link_to 'Delete this comment', delete_comment_path(comment.id) %>
+            <li>
+            <% if comment.attending %>
+                <h4> going; <%= comment.comment %> <br> </h4>
+            <% else %>
+                <h4>not going; <%= comment.comment %> <br> </h4>
+            <% end %>
+            <% if comment.user_id == current_user.id %>
+                <%= link_to 'Delete', comment, method: :delete %></h8>
             <% end %>
             </li>
     <% end %>
         </ul>
   <% end %>
 
+<br><br><br>
+<br><br>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Add a Comment
+</button> 
+
+<!-- Modal -->
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a new comment</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @comment do |f| %>
+        <%= f.input :attending, required: true, as: :radio_buttons %>
+        <%= f.input :comment, as: :text, label: 'optional comment' %>
+        <%= f.hidden_field :event_id, input_html: { value: @event.id } %>
+      </div>
+      <div class="modal-footer">
+        <%= f.button :submit %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <% end %>
+      </div>
+  </div>
+ </div>
+</div>
