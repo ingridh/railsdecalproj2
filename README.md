@@ -4,7 +4,7 @@
 
 Team Members: Ingrid Hong, Mandy Huang, Melissa Pangilinan
 
-Demo Link: groupmeet.herokuapp.com
+Demo Link: group-meet.herokuapp.com
 
 
 Idea: An application where users can create an event and other users who want to go can go with them lets the creator of the event know by leaving a comment.
