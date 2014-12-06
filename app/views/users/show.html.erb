@@ -20,16 +20,6 @@
   <br>
 
   <button type="button" class="btn btn-default btn-lg"><%= link_to 'Create Your Own Event!', new_event_path %></button>
-  <h5>Create your own event</h5>
-  <%= simple_form_for @event do |f| %>
-  <%= f.input :title, label: 'Event Name', required: true, input_html: {maxlength: 30}  %>
-  <%= f.input :description, as: :text, label: 'Description', required: true %>
-  <%= f.input :location, label: 'Location', required: true %>
-  <%= f.input :time, label: 'Time', hint: 'hh:mm am/pm', required: true %>
-  <%= f.input :date, as: :date, year: Date.today.year - 90, end_year: Date.today.year - 12, discard_day: true, order: [:month, :year], required: true %>
-  <%= f.button :submit %>
-  <% end %>
-
 
 	</div>
 </body>
