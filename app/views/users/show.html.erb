@@ -17,17 +17,43 @@
 
   <br>
   <button type="button" class="btn btn-default btn-lg"><%= link_to 'Explore More Events!', events_path %></button>
-  <br>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Create Your Own Event!
+</button>
 
-  <button type="button" class="btn btn-default btn-lg"><%= link_to 'Create Your Own Event!', new_event_path %></button>
-  <h5>Create your own event</h5>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create Event</h4>
+      </div>
+      <div class="modal-body">
+          
   <%= simple_form_for @event do |f| %>
   <%= f.input :title, label: 'Event Name', required: true, input_html: {maxlength: 30}  %>
-  <%= f.input :description, as: :text, label: 'Description', required: true %>
+  <%= f.input :time, as: :time, required: true %><br>
+  <%= f.input :date, as: :date, required: true %><br><br>
   <%= f.input :location, label: 'Location', required: true %>
-  <%= f.input :time, label: 'Time', hint: 'hh:mm am/pm', required: true %>
-  <%= f.input :date, as: :date, year: Date.today.year - 90, end_year: Date.today.year - 12, discard_day: true, order: [:month, :year], required: true %>
-  <%= f.button :submit %>
+  <%= f.input :description, as: :text, label: 'Description', required: true %>
+
+  
+
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= f.button :submit %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
   <% end %>
 
 
