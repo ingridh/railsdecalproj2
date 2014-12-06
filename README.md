@@ -4,7 +4,7 @@
 
 Team Members: Ingrid Hong, Mandy Huang, Melissa Pangilinan
 
-Demo Link: 
+Demo Link: group-meet.herokuapp.com
 
 
 Idea: An application where users can create an event and other users who want to go can go with them lets the creator of the event know by leaving a comment.
@@ -36,8 +36,8 @@ Features:
 
 Division of Labor:
 
-- Ingrid: Make views and make it pretty, use a custom gem
+- Ingrid: Make views and make it pretty, use a custom gem, deploy to heroku
 - Mandy: Make Controllers and routes, validations, writeup
-- Melissa: Make the 3 models with seed file, test files, deploy to heroku
+- Melissa: Make the 3 models with seed file, test files
 
 

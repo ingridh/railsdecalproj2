@@ -1,5 +1,12 @@
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
 <div class="authform">
-  <h3>Edit <%= resource_name.to_s.humanize %></h3>
+  <h3>Hi <%= @user.name %>!</h3>
+  <p>This is where you can change your settings.</p>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
     <%= devise_error_messages! %>
     <div class="form-group">
@@ -14,18 +21,18 @@
       <% end %>
     </div>
     <fieldset>
-      <p>Leave these fields blank if you don't want to change your password.</p>
+      <p>Leave this section blank if you don't want to change your password.</p>
       <div class="form-group">
         <%= f.label :password %>
         <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation %>
+        <%= f.label :cofirm_your_password %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
     </fieldset>
     <fieldset>
-      <p>You must enter your current password to make changes.</p>
+      <p>Reenter your current password to make changes.</p>
       <div class="form-group">
         <%= f.label :current_password %>
         <%= f.password_field :current_password, class: 'form-control' %>
@@ -35,7 +42,21 @@
   <% end %>
 </div>
 <div class="authform">
-<h3>Cancel Account</h3>
-<p>Unhappy? We'll be sad to see you go.</p>
-<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
+<h3>Delete My Account</h3>
+<p>Awh, you want to leave Group Meetup?</p>
+<%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure you want to leave?" }, :method => :delete, :class => 'btn btn-primary btn-sm btn-block' %>
 </div>
+</body>
+
+<style>
+  h3 {
+    font-family: "Montserrat", "sans-serf";
+  }
+
+  form {
+    margin-top : 20px;
+  }
+
+  .authform {
+  }
+</style>

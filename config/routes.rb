@@ -1,24 +1,25 @@
 Rails.application.routes.draw do
-  get 'comments/index'
+  # get 'comments/index'
 
-  get 'comments/show'
+  # get 'comments/show'
 
-  get 'comments/update'
+  # get 'comments/update'
 
-  get 'comments/edit'
+  # get 'comments/edit'
 
-  get 'comments/create'
+  # get 'comments/create'
 
-  get 'events/index'
+  # get 'events/index'
 
-  get 'events/show'
+  # get 'events/show'
 
-  get 'events/update'
+  # get 'events/update'
 
-  get 'events/edit'
+  # get 'events/edit'
 
-  get 'events/create'
-
+  # get 'events/create'
+  resources :events
+  resources :comments
   root to: 'visitors#index'
   devise_for :users
   resources :users

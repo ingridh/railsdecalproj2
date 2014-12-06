@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: Web Design DeCal
-  description: Learn how to make static web pages with HTML, CSS, and Javascript.
-  location: Soda Hall
-  time: 3:00pm-5:00pm
-  date: 12/4/14
+  title: MyString
+  description: MyString
+  location: MyString
+  time: MyString
+  date: MyString
+  user_id: 1
 
 two:
-  title: Photoshop DeCal
-  description: Adobe Illustrator CS6 and Photoshop CS6 will be taught through a series of tutorials complemented with exercises in class and at home.
-  location: Soda Hall
-  time: 5:00pm-7:00pm
-  date: 12/10/14
+  title: MyString
+  description: MyString
+  location: MyString
+  time: MyString
+  date: MyString
+  user_id: 1
