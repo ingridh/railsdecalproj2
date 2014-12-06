@@ -115,7 +115,11 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+<<<<<<< HEAD
     simple_form (3.0.2)
+=======
+    simple_form (3.1.0)
+>>>>>>> 0af76af9b6f5621b2509cbf3eb0549029efb4cab
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     spring (1.1.3)
